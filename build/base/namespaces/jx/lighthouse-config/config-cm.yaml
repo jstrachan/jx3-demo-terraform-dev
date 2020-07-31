@@ -5,6 +5,10 @@ data:
       orgs:
         jstrachan:
           repos:
+            godemo60:
+              required_status_checks:
+                contexts:
+                - pr-build
             jx3-demo-terraform-dev:
               required_status_checks:
                 contexts:
@@ -21,6 +25,12 @@ data:
     plank: {}
     pod_namespace: jx
     postsubmits:
+      jstrachan/godemo60:
+      - agent: tekton
+        branches:
+        - master
+        name: release
+        skip_report: true
       jstrachan/jx3-demo-terraform-dev:
       - agent: tekton
         branches:
@@ -28,6 +38,13 @@ data:
         name: promotion
         skip_report: true
     presubmits:
+      jstrachan/godemo60:
+      - agent: tekton
+        always_run: true
+        context: pr-build
+        name: pr-build
+        rerun_command: /test this
+        trigger: (?m)^/test( all| this),?(\s+|$)
       jstrachan/jx3-demo-terraform-dev:
       - agent: tekton
         always_run: true
@@ -42,9 +59,10 @@ data:
     tide:
       context_options:
         from-branch-protection: true
-        required-if-present-contexts: []
+        required-if-present-contexts: null
         skip-unknown-contexts: false
       merge_method:
+        jstrachan/godemo60: merge
         jstrachan/jx3-demo-terraform-dev: merge
       queries:
       - labels:
@@ -57,6 +75,7 @@ data:
         - needs-rebase
         repos:
         - jstrachan/jx3-demo-terraform-dev
+        - jstrachan/godemo60
       - labels:
         - updatebot
         missingLabels:
@@ -67,6 +86,7 @@ data:
         - needs-rebase
         repos:
         - jstrachan/jx3-demo-terraform-dev
+        - jstrachan/godemo60
       target_url: http://deck-jx.34.71.30.8.nip.io
 kind: ConfigMap
 metadata:

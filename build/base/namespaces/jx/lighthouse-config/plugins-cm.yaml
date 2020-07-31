@@ -6,6 +6,10 @@ data:
       repos:
       - jstrachan/jx3-demo-terraform-dev
       require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
+      - jstrachan/godemo60
+      require_self_approval: true
     blunderbuss: {}
     cat: {}
     cherry_pick_unapproved: {}
@@ -20,6 +24,22 @@ data:
       additional_labels: null
     owners: {}
     plugins:
+      jstrachan/godemo60:
+      - approve
+      - assign
+      - blunderbuss
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - heart
+      - cat
+      - dog
+      - pony
       jstrachan/jx3-demo-terraform-dev:
       - config-updater
       - approve
@@ -50,6 +70,11 @@ data:
     - repos:
       - jstrachan/jx3-demo-terraform-dev
       trusted_org: todo
+    - repos:
+      - jstrachan/godemo60
+      trusted_org: todo
+    welcome:
+    - message_template: Welcome
 kind: ConfigMap
 metadata:
   creationTimestamp: null
