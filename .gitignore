@@ -15,3 +15,6 @@
 # vendor/
 
 .idea 
+
+# lets avoid checking in terraform state in case it has passwords and we are public repo
+*.tfstate

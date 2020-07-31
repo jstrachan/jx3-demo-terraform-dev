@@ -37,27 +37,29 @@ ingress:
   tls:
     email: ""
     enabled: false
-    production: false
+    production: true
 kaniko: true
 repository: nexus
 secretStorage: vault
 storage:
   backup:
     enabled: false
-    url: ""
   logs:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://logs-tf-jx-exotic-asp-276109cf42c1
   reports:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://reports-tf-jx-exotic-asp-276109cf42c1
   repository:
-    enabled: false
-    url: ""
-vault: {}
-velero:
-  schedule: ""
-  ttl: ""
+    enabled: true
+    url: gs://repository-tf-jx-exotic-asp-276109cf42c1
+secretStorage: vault
+vault:
+  name: tf-jx-exotic-asp
+  bucket: vault-tf-jx-exotic-asp-276109cf42c1
+  key: crypto-key-tf-jx-exotic-asp-276109cf42c1
+  keyring: keyring-tf-jx-exotic-asp-276109cf42c1
+  serviceAccount: tf-jx-exotic-asp-vt
 versionStream:
   ref: master
   url: https://github.com/jenkins-x/jxr-versions.git
