@@ -67,7 +67,7 @@ data:
         - needs-rebase
         repos:
         - jstrachan/jx3-demo-terraform-dev
-      target_url: http://deck-jx.34.71.30.8.nip.io
+      target_url: http://deck-jx.
 kind: ConfigMap
 metadata:
   creationTimestamp: null
