@@ -1,0 +1,94 @@
+jxRequirements:
+  autoUpdate:
+    enabled: false
+    schedule: ""
+  bootConfigURL: https://github.com/jenkins-x/jx3-boot-config
+  buildPacks:
+    buildPackLibrary:
+      gitRef: master
+      gitURL: https://github.com/jenkins-x/jxr-packs-kubernetes.git
+  cluster:
+    clusterName: tf-jx-exotic-asp
+    devEnvApprovers:
+    - todo
+    environmentGitOwner: todo
+    gitKind: github
+    gitName: github
+    gitServer: https://github.com
+    gke:
+      projectNumber: "90706211714"
+    namespace: jx
+    project: jstrachan-multicluster
+    provider: gke
+    registry: gcr.io
+    vaultName: tf-jx-exotic-asp
+    vaultSAName: tf-jx-exotic-asp-vt
+    zone: us-central1-a
+  environments:
+  - ingress:
+      domain: ""
+      externalDNS: false
+      namespaceSubDomain: ""
+      tls:
+        email: ""
+        enabled: false
+        production: false
+    key: dev
+    owner: jstrachan
+    repository: jx3-demo-terraform-dev
+  - ingress:
+      domain: ""
+      externalDNS: false
+      namespaceSubDomain: ""
+      tls:
+        email: ""
+        enabled: false
+        production: false
+    key: staging
+  - ingress:
+      domain: ""
+      externalDNS: false
+      namespaceSubDomain: ""
+      tls:
+        email: ""
+        enabled: false
+        production: false
+    key: production
+  gitops: true
+  ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: true
+  kaniko: true
+  repository: nexus
+  secretStorage: vault
+  storage:
+    backup:
+      enabled: false
+      url: ""
+    logs:
+      enabled: true
+      url: gs://logs-tf-jx-exotic-asp-276109cf42c1
+    reports:
+      enabled: true
+      url: gs://reports-tf-jx-exotic-asp-276109cf42c1
+    repository:
+      enabled: true
+      url: gs://repository-tf-jx-exotic-asp-276109cf42c1
+  vault:
+    bucket: vault-tf-jx-exotic-asp-276109cf42c1
+    key: crypto-key-tf-jx-exotic-asp-276109cf42c1
+    keyring: keyring-tf-jx-exotic-asp-276109cf42c1
+    name: tf-jx-exotic-asp
+    serviceAccount: tf-jx-exotic-asp-vt
+  velero:
+    schedule: ""
+    ttl: ""
+  versionStream:
+    ref: master
+    url: https://github.com/jenkins-x/jxr-versions.git
+  webhook: lighthouse

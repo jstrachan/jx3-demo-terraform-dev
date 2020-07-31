@@ -7,31 +7,55 @@ buildPacks:
     gitRef: master
     gitURL: https://github.com/jenkins-x/jxr-packs-kubernetes.git
 cluster:
-  clusterName: ""
+  clusterName: tf-jx-exotic-asp
   devEnvApprovers:
   - todo
-  environmentGitOwner: "todo"
+  environmentGitOwner: todo
   gitKind: github
   gitName: github
   gitServer: https://github.com
+  gke:
+    projectNumber: "90706211714"
   namespace: jx
-  project:  ""
+  project: jstrachan-multicluster
   provider: gke
   registry: gcr.io
-  zone: ""
+  vaultName: tf-jx-exotic-asp
+  vaultSAName: tf-jx-exotic-asp-vt
+  zone: us-central1-a
 environments:
-- key: dev
-  owner: ""
-  repository: ""
-- key: staging
-  owner: ""
-  repository: ""
-- key: production
-  owner: ""
-  repository: ""
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+  owner: jstrachan
+  repository: jx3-demo-terraform-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
 gitops: true
 ingress:
-  domain: ""
+  domain: 34.71.30.8.nip.io
   externalDNS: false
   namespaceSubDomain: -jx.
   tls:
@@ -44,6 +68,7 @@ secretStorage: vault
 storage:
   backup:
     enabled: false
+    url: ""
   logs:
     enabled: true
     url: gs://logs-tf-jx-exotic-asp-276109cf42c1
@@ -53,13 +78,15 @@ storage:
   repository:
     enabled: true
     url: gs://repository-tf-jx-exotic-asp-276109cf42c1
-secretStorage: vault
 vault:
-  name: tf-jx-exotic-asp
   bucket: vault-tf-jx-exotic-asp-276109cf42c1
   key: crypto-key-tf-jx-exotic-asp-276109cf42c1
   keyring: keyring-tf-jx-exotic-asp-276109cf42c1
+  name: tf-jx-exotic-asp
   serviceAccount: tf-jx-exotic-asp-vt
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
   ref: master
   url: https://github.com/jenkins-x/jxr-versions.git
