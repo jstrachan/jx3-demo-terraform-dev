@@ -63,3 +63,5 @@ repositories:
   url: https://kubernetes-charts.banzaicloud.com
 - name: dev
   url: http://chartmuseum-jx.34.71.30.8.nip.io
+values:
+- jx-values.yaml
