@@ -47,6 +47,9 @@ apps:
 - name: jx-labs/pusher-wave
   namespace: jx
   version: 1.0.0
+- name: dev/godemo60
+  namespace: jx-staging
+  version: 0.0.6
 repositories:
 - name: jenkins-x
   url: https://storage.googleapis.com/chartmuseum.jenkins-x.io
@@ -58,5 +61,5 @@ repositories:
   url: https://kubernetes-charts.storage.googleapis.com
 - name: banzaicloud-stable
   url: https://kubernetes-charts.banzaicloud.com
-values:
-- jx-values.yaml
+- name: dev
+  url: http://chartmuseum-jx.34.71.30.8.nip.io
